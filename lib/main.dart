@@ -31,7 +31,7 @@ class App extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: HomeScreen('Flutter Redux Home Page'),
-        onGenerateRoute: (RouteSettings settings) => _getRoute(settings),
+        onGenerateRoute: (RouteSettings settings) => Router().generateRoute(settings),
       ),
     );
   }
