@@ -8,7 +8,7 @@ class Counter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  StoreConnector<AppState, _ViewModel>(
-        converter: _ViewModel.fromStore,
+        converter: (Store<AppState> store) => _ViewModel.fromStore(store),
         builder: (BuildContext context, _ViewModel vm) {
           return  Text(
             vm.count.toString(),
@@ -20,13 +20,12 @@ class Counter extends StatelessWidget {
 }
 
 class _ViewModel {
-  final int count;
-
   _ViewModel({
     @required this.count,
   });
 
-  static _ViewModel fromStore(Store<AppState> store) {
-    return  _ViewModel(count: store.state.count);
-  }
+  _ViewModel.fromStore(Store<AppState> store) : count = store.state.count;
+
+  final int count;
+
 }

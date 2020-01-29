@@ -9,16 +9,24 @@ List<Middleware<AppState>> createNavigationMiddleware() {
   ];
 }
 
-void _navigateReplace(Store<AppState> store, NavigateReplaceAction action, NextDispatcher next) {
-  final String routeName = action.routeName;
+void _navigateReplace(
+    Store<AppState> store,
+    NavigateReplaceAction action,
+    NextDispatcher next,
+    ) {
+  final routeName = action.routeName;
   if (store.state.route.last != routeName) {
     navigatorKey.currentState.pushReplacementNamed(routeName);
   }
   next(action); //This need to be after name checks
 }
 
-void _navigate(Store<AppState> store, NavigatePushAction action, NextDispatcher next) {
-  final String routeName = action.routeName;
+void _navigate(
+    Store<AppState> store,
+    NavigatePushAction action,
+    NextDispatcher next
+    ) {
+  final routeName = action.routeName;
   if (store.state.route.last != routeName) {
     navigatorKey.currentState.pushNamed(routeName);
   }

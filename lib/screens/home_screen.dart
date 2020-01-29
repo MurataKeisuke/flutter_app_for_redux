@@ -4,9 +4,9 @@ import 'package:redux_app/actions/actions.dart';
 import 'package:redux_app/models/models.dart';
 
 class HomeScreen extends StatelessWidget {
-  String title;
+  const HomeScreen(this.title);
 
-  HomeScreen(this.title);
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +31,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   void _onTapList(BuildContext _context, String routeName) {
-    StoreProvider.of<AppState>(_context).dispatch(NavigatePushAction(routeName));
+    StoreProvider.of<AppState>(_context)
+        .dispatch(NavigatePushAction(routeName));
   }
 }

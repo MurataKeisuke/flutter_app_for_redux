@@ -18,7 +18,7 @@ class App extends StatelessWidget {
     appReducer,
     initialState: AppState(),
     middleware: [
-      LoggingMiddleware.printer(),
+      LoggingMiddleware<dynamic>.printer(),
       ...createNavigationMiddleware(),
     ],
   );
@@ -35,7 +35,7 @@ class App extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomeScreen('Flutter Redux Home Page'),
+        home: const HomeScreen('Flutter Redux Home Page'),
       ),
     );
   }

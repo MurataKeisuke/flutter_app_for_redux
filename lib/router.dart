@@ -7,11 +7,17 @@ class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.homeRoute:
-        return MainRoute(HomeScreen('Flutter Redux Home Page'), settings: settings);
+        return MainRoute<dynamic>(
+            const HomeScreen('Flutter Redux Home Page'),
+            settings: settings,
+        );
       case AppRoutes.counterRoute:
-        return SubRoute(const CounterScreen('Counter Page'), settings: settings);
+        return SubRoute<dynamic>(
+            const CounterScreen('Counter Page'),
+            settings: settings,
+        );
       default:
-        return MaterialPageRoute(
+        return MaterialPageRoute<dynamic>(
             builder: (_) => Scaffold(
               body: Center(
                   child: Text('No route x defined for ${settings.name}')),
@@ -21,7 +27,9 @@ class Router {
 }
 
 class MainRoute<T> extends MaterialPageRoute<T> {
-  MainRoute(Widget widget, {RouteSettings settings}) : super(builder: (_) => RouteAwareWidget(child: widget), settings: settings);
+  MainRoute(Widget widget, {RouteSettings settings})
+      : super(builder: (_) =>
+      RouteAwareWidget(child: widget), settings: settings);
 
   @override
   Widget buildTransitions(
@@ -38,7 +46,9 @@ class MainRoute<T> extends MaterialPageRoute<T> {
 }
 
 class SubRoute<T> extends MaterialPageRoute<T> {
-  SubRoute(Widget widget, {RouteSettings settings}) : super(builder: (_) => RouteAwareWidget(child: widget), settings: settings);
+  SubRoute(Widget widget, {RouteSettings settings})
+      : super(builder: (_) =>
+      RouteAwareWidget(child: widget), settings: settings);
 
   @override
   Widget buildTransitions(
@@ -52,7 +62,7 @@ class SubRoute<T> extends MaterialPageRoute<T> {
     }
     return SlideTransition(
         position: Tween<Offset>(
-          begin: const Offset(0.0, 1.0),
+          begin: const Offset(0, 1),
           end: Offset.zero,
         ).animate(animation),
         child: child);

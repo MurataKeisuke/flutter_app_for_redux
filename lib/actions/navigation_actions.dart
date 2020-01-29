@@ -1,7 +1,7 @@
 class NavigateReplaceAction {
-  final String routeName;
-
   NavigateReplaceAction(this.routeName);
+
+  final String routeName;
 
   @override
   String toString() {
@@ -10,9 +10,9 @@ class NavigateReplaceAction {
 }
 
 class NavigatePushAction {
-  final String routeName;
-
   NavigatePushAction(this.routeName);
+
+  final String routeName;
 
   @override
   String toString() {

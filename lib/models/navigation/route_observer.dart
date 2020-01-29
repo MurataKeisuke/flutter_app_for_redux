@@ -6,18 +6,18 @@ import 'package:redux_app/models/models.dart';
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
 class RouteAwareWidget extends StatefulWidget {
-  final Widget child;
-
   const RouteAwareWidget({this.child});
+
+  final Widget child;
 
   @override
   State<RouteAwareWidget> createState() => RouteAwareWidgetState(child: child);
 }
 
 class RouteAwareWidgetState extends State<RouteAwareWidget> with RouteAware {
-  final Widget child;
-
   RouteAwareWidgetState({this.child});
+  
+  final Widget child;
 
   @override
   void didChangeDependencies() {

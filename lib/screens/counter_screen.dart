@@ -3,9 +3,9 @@ import 'package:redux_app/containers/button/increase_counters.dart';
 import 'package:redux_app/containers/counter/counter.dart';
 
 class CounterScreen extends StatelessWidget {
-  final String title;
-
   const CounterScreen(this.title);
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
