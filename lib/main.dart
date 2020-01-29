@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux_app/containers/routes/route_aware_widget.dart';
 import 'package:redux_logging/redux_logging.dart';
 import 'package:redux_app/screens/home_screen.dart';
 import 'package:redux_app/models/models.dart';
 import 'package:redux_app/reducers/app_reducer.dart';
 import 'package:redux_app/router.dart';
+import 'package:redux_app/middleware/navigation_middleware.dart';
+import 'middleware/navigation_middleware.dart';
 
 
 void main() => runApp(App());
@@ -16,7 +17,10 @@ class App extends StatelessWidget {
   final Store<AppState> store = Store<AppState>(
     appReducer,
     initialState: AppState(),
-//    middleware: [LoggingMiddleware.printer()],
+    middleware: [
+      LoggingMiddleware.printer(),
+      ...createNavigationMiddleware(),
+    ],
   );
 
   @override
@@ -27,11 +31,11 @@ class App extends StatelessWidget {
         title: 'Flutter Redux',
         navigatorKey: navigatorKey,
         navigatorObservers: [routeObserver],
+        onGenerateRoute: Router.generateRoute,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
         home: HomeScreen('Flutter Redux Home Page'),
-        onGenerateRoute: (RouteSettings settings) => Router().generateRoute(settings),
       ),
     );
   }

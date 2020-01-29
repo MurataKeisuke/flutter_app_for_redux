@@ -1,4 +1,3 @@
-
 import 'package:redux/redux.dart';
 import 'package:redux_app/actions/actions.dart';
 
@@ -13,13 +12,13 @@ List<String> _navigateReplace(List<String> route, NavigateReplaceAction action) 
 }
 
 List<String> _navigatePush(List<String> route, NavigatePushAction action) {
-  final List<String> result = List<String>.from(route);
+  final result = List<String>.from(route);
   result.add(action.routeName);
   return result;
 }
 
 List<String> _navigatePop(List<String> route, NavigatePopAction action) {
-  final List<String> result = List<String>.from(route);
+  final result = List<String>.from(route);
   result.removeLast();
   return result;
 }

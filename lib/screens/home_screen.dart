@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:redux_app/containers/button/increase_counters.dart';
-import 'package:redux_app/containers/counter/counter.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux_app/actions/actions.dart';
+import 'package:redux_app/models/models.dart';
 
 class HomeScreen extends StatelessWidget {
   String title;
@@ -14,17 +15,22 @@ class HomeScreen extends StatelessWidget {
         title: Text(title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Counter(),
+            ListTile(
+              leading: Icon(Icons.add),
+              title: const Text('Counter'),
+              onTap: () {
+                _onTapList(context, AppRoutes.counterRoute);
+              },
+            )
           ],
         ),
       ),
-      floatingActionButton: const IncreaseCountButton(),
     );
+  }
+
+  void _onTapList(BuildContext _context, String routeName) {
+    StoreProvider.of<AppState>(_context).dispatch(NavigatePushAction(routeName));
   }
 }

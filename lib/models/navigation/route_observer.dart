@@ -32,11 +32,6 @@ class RouteAwareWidgetState extends State<RouteAwareWidget> with RouteAware {
   }
 
   @override
-  void didPush() {
-    // Route was pushed onto navigator and is now topmost route.
-  }
-
-  @override
   void didPopNext() {
     // Covering route was popped off the navigator.
     StoreProvider.of<AppState>(context).dispatch(NavigatePopAction());
