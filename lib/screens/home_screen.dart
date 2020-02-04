@@ -17,16 +17,40 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: ListView(
           children: <Widget>[
-            ListTile(
-              leading: Icon(Icons.add),
-              title: const Text('Counter'),
-              onTap: () {
-                _onTapList(context, AppRoutes.counterRoute);
-              },
-            )
+            _tile(
+                'Counter',
+                'go to Counter Page',
+                Icons.add,
+                AppRoutes.counterRoute,
+                context,
+            ),
+            const Divider(),
           ],
         ),
       ),
+    );
+  }
+
+  ListTile _tile(
+      String title,
+      String subTitle,
+      IconData icon,
+      String pushRoute,
+      BuildContext _context,
+  ) {
+    return ListTile(
+      title: Text(title, style: TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: 20,
+      )),
+      subtitle: Text(subTitle),
+      leading: Icon(
+        icon,
+        color: Colors.blue[500],
+      ),
+      onTap: () {
+        _onTapList(_context, pushRoute);
+      },
     );
   }
 
