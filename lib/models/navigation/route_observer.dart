@@ -22,7 +22,7 @@ class RouteAwareWidgetState extends State<RouteAwareWidget> with RouteAware {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    routeObserver.subscribe(this, ModalRoute.of(context) as PageRoute);
+    routeObserver.subscribe(this, ModalRoute.of(context) as PageRoute<dynamic>);
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'package:redux_app/models/models.dart';
 
 class AppState {
-  AppState({
+  const AppState({
     this.isLoading = false,
     this.count = 0,
     this.route = const [AppRoutes.homeRoute],

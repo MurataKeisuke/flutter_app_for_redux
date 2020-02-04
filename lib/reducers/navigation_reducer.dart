@@ -8,21 +8,16 @@ final navigationReducer = combineReducers<List<String>>([
 ]);
 
 List<String> _navigateReplace(
-    List<String> route,
-    NavigateReplaceAction action
-    ) {
-  return [action.routeName];
-}
+    List<String> route, NavigateReplaceAction action) => [action.routeName];
 
-List<String> _navigatePush(
-    List<String> route,
-    NavigatePushAction action
-    ) {
-  final result = List<String>.from(route);
-  return result.add(action.routeName) as List<String>;
+List<String> _navigatePush(List<String> route, NavigatePushAction action) {
+  final result = List<String>.from(route)
+    ..add(action.routeName);
+  return result;
 }
 
 List<String> _navigatePop(List<String> route, NavigatePopAction action) {
-  final result = List<String>.from(route);
-  return result.removeLast() as List<String>;
+  final result = List<String>.from(route)
+    ..removeLast();
+  return result;
 }

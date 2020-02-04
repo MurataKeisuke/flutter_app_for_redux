@@ -5,7 +5,7 @@ import 'package:redux_app/models/models.dart';
 List<Middleware<AppState>> createNavigationMiddleware() {
   return [
     TypedMiddleware<AppState, NavigateReplaceAction>(_navigateReplace),
-    TypedMiddleware<AppState, NavigatePushAction>(_navigate),
+    TypedMiddleware<AppState, NavigatePushAction>(_navigatePush),
   ];
 }
 
@@ -21,7 +21,7 @@ void _navigateReplace(
   next(action); //This need to be after name checks
 }
 
-void _navigate(
+void _navigatePush(
     Store<AppState> store,
     NavigatePushAction action,
     NextDispatcher next

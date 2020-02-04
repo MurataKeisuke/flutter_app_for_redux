@@ -7,17 +7,17 @@ class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.homeRoute:
-        return MainRoute<dynamic>(
+        return MainRoute(
             const HomeScreen('Flutter Redux Home Page'),
             settings: settings,
         );
       case AppRoutes.counterRoute:
-        return SubRoute<dynamic>(
+        return SubRoute(
             const CounterScreen('Counter Page'),
             settings: settings,
         );
       default:
-        return MaterialPageRoute<dynamic>(
+        return MaterialPageRoute(
             builder: (_) => Scaffold(
               body: Center(
                   child: Text('No route x defined for ${settings.name}')),

@@ -16,7 +16,7 @@ class App extends StatelessWidget {
   final String title = 'Flutter Demo Home Page';
   final Store<AppState> store = Store<AppState>(
     appReducer,
-    initialState: AppState(),
+    initialState: const AppState(),
     middleware: [
       LoggingMiddleware<dynamic>.printer(),
       ...createNavigationMiddleware(),
