@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux_logging/redux_logging.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:redux_app/screens/home_screen.dart';
 import 'package:redux_app/models/models.dart';
 import 'package:redux_app/reducers/app_reducer.dart';
@@ -36,6 +37,14 @@ class App extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: const HomeScreen('Flutter Redux Home Page'),
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'), // English
+          Locale('ja'), // Japanese
+        ],
       ),
     );
   }

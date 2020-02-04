@@ -31,10 +31,31 @@ class RouteAwareWidgetState extends State<RouteAwareWidget> with RouteAware {
     super.dispose();
   }
 
+  // 上の画面がpopされて、この画面に戻ったときに呼ばれます
   @override
   void didPopNext() {
     // Covering route was popped off the navigator.
+//    StoreProvider.of<AppState>(context).dispatch(NavigatePopAction());
+    debugPrint('didPopNext $runtimeType');
+  }
+
+  // この画面がpopされたときに呼ばれます
+  @override
+  void didPop() {
+    debugPrint('didPop $runtimeType');
     StoreProvider.of<AppState>(context).dispatch(NavigatePopAction());
+  }
+
+  // この画面がpushされたときに呼ばれます
+  @override
+  void didPush() {
+    debugPrint('didPush $runtimeType');
+  }
+
+  // この画面から新しい画面をpushしたときに呼ばれます
+  @override
+  void didPushNext() {
+    debugPrint('didPushNext $runtimeType');
   }
 
   @override
