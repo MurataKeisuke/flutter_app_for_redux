@@ -7,8 +7,7 @@ import 'package:redux_app/screens/home_screen.dart';
 import 'package:redux_app/models/models.dart';
 import 'package:redux_app/reducers/app_reducer.dart';
 import 'package:redux_app/router.dart';
-import 'package:redux_app/middleware/navigation_middleware.dart';
-import 'middleware/navigation_middleware.dart';
+import 'package:redux_app/middlewares/navigation_middleware.dart';
 
 
 void main() => runApp(App());

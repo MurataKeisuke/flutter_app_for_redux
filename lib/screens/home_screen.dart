@@ -6,6 +6,8 @@ import 'package:redux_app/models/models.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen(this.title);
 
+  static const Key counterTileKey = Key('counterTile');
+
   final String title;
 
   @override
@@ -18,6 +20,7 @@ class HomeScreen extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             _tile(
+                counterTileKey,
                 'Counter',
                 'go to Counter Page',
                 Icons.add,
@@ -32,6 +35,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   ListTile _tile(
+      Key key,
       String title,
       String subTitle,
       IconData icon,
@@ -39,6 +43,7 @@ class HomeScreen extends StatelessWidget {
       BuildContext _context,
   ) {
     return ListTile(
+      key: key,
       title: Text(title, style: TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 20,
