@@ -3,6 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux_app/actions/actions.dart';
 import 'package:redux_app/models/models.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen(this.title);
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                 counterTileKey,
                 'Counter',
                 'go to Counter Page',
-                Icons.add,
+                MaterialIcons.exposure_plus_1,
                 AppRoutes.counterRoute,
                 context,
                 'https://flutter.dev/docs/get-started/test-drive',
@@ -35,7 +36,7 @@ class HomeScreen extends StatelessWidget {
               dialogSampleKey,
               'awesome_dialog',
               'go to awesome_dialog Sample Page',
-              Icons.add_alert,
+              MaterialIcons.notifications,
               AppRoutes.dialogSampleRoute,
               context,
               'https://pub.dev/packages/awesome_dialog',
