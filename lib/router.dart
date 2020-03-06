@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:redux_app/models/models.dart';
 import 'package:redux_app/screens/home_screen.dart';
 import 'package:redux_app/screens/counter_screen.dart';
+import 'package:redux_app/screens/awesome_dialog_screen.dart';
 
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -15,6 +16,11 @@ class Router {
         return SubRoute<dynamic>(
             const CounterScreen('Counter Page'),
             settings: settings,
+        );
+      case AppRoutes.dialogSampleRoute:
+        return MainRoute<dynamic>(
+          DialogSampleScreen(),
+          settings: settings,
         );
       default:
         return MaterialPageRoute<dynamic>(
