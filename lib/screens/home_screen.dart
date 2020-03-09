@@ -9,7 +9,8 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen(this.title);
 
   static const Key counterTileKey = Key('counterTile');
-  static const Key awesomeDialogKey = Key('awesomeDialogKey');
+  static const Key awesomeDialogTileKey = Key('awesomeDialogTile');
+  static const Key percentIndicatorTileKey = Key('percentIndicatorTile');
 
   final String title;
 
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
             _tile(
                 counterTileKey,
                 'Counter',
-                'go to Counter Page',
+                'go to Counter page',
                 MaterialIcons.exposure_plus_1,
                 AppRoutes.counterRoute,
                 context,
@@ -33,16 +34,25 @@ class HomeScreen extends StatelessWidget {
             ),
             const Divider(),
             _tile(
-              awesomeDialogKey,
+              awesomeDialogTileKey,
               'awesome_dialog',
-              'go to awesome_dialog Sample Page',
+              'go to  awesome_dialog sample page',
               MaterialIcons.notifications,
               AppRoutes.awesomeDialogRoute,
               context,
               'https://pub.dev/packages/awesome_dialog',
             ),
             const Divider(),
-
+            _tile(
+              percentIndicatorTileKey,
+              'percent_indicator',
+              'go to percent_indicator sample page',
+              MaterialIcons.pie_chart,
+              AppRoutes.percentIndicatorRoute,
+              context,
+              'https://pub.dev/packages/percent_indicator',
+            ),
+            const Divider(),
           ],
         ),
       ),

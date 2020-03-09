@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:redux_app/models/models.dart';
 import 'package:redux_app/screens/home_screen.dart';
 import 'package:redux_app/screens/counter_screen.dart';
-import 'package:redux_app/screens/awesome_dialog_screen.dart';
+import 'package:redux_app/screens/awesome_dialog/awesome_dialog_screen.dart';
+import 'package:redux_app/screens/percent_indicator/percent_indicator_screen.dart';
+import 'package:redux_app/screens/percent_indicator/circular_percent_indicator_screen.dart';
+import 'package:redux_app/screens/percent_indicator/linear_percent_indicator_screen.dart';
 
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -20,6 +23,21 @@ class Router {
       case AppRoutes.awesomeDialogRoute:
         return MainRoute<dynamic>(
           DialogSampleScreen(),
+          settings: settings,
+        );
+      case AppRoutes.percentIndicatorRoute:
+        return MainRoute<dynamic>(
+          PercentIndicatorScreen(),
+          settings: settings,
+        );
+      case AppRoutes.circularPercentIndicatorRoute:
+        return SubRoute<dynamic>(
+          CircularPercentIndicatorScreen(),
+          settings: settings,
+        );
+      case AppRoutes.linearPercentIndicatorRoute:
+        return SubRoute<dynamic>(
+          LinearPercentIndicatorScreen(),
           settings: settings,
         );
       default:
