@@ -17,7 +17,7 @@ class Router {
             const CounterScreen('Counter Page'),
             settings: settings,
         );
-      case AppRoutes.dialogSampleRoute:
+      case AppRoutes.awesomeDialogRoute:
         return MainRoute<dynamic>(
           DialogSampleScreen(),
           settings: settings,

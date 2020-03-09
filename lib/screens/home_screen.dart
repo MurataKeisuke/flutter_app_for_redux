@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen(this.title);
 
   static const Key counterTileKey = Key('counterTile');
-  static const Key dialogSampleKey = Key('dialogSampleKey');
+  static const Key awesomeDialogKey = Key('awesomeDialogKey');
 
   final String title;
 
@@ -33,11 +33,11 @@ class HomeScreen extends StatelessWidget {
             ),
             const Divider(),
             _tile(
-              dialogSampleKey,
+              awesomeDialogKey,
               'awesome_dialog',
               'go to awesome_dialog Sample Page',
               MaterialIcons.notifications,
-              AppRoutes.dialogSampleRoute,
+              AppRoutes.awesomeDialogRoute,
               context,
               'https://pub.dev/packages/awesome_dialog',
             ),
